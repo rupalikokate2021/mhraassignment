@@ -14,6 +14,7 @@ public class BaseTest {
     public void setup(){
         System.out.println("starting");
         System.setProperty("webdriver.chrome.driver", "C:\\code\\driver\\134\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions(); 
         options.addArguments("--start-maximized");
        // options.addArguments("user-data-dir=C:\\Users\\Rupali\\AppData\\Local\\Google\\Chrome\\User Data"); // Use your own Chrome profile

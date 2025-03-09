@@ -21,4 +21,4 @@ Feature files
 /src/test/resources/features/
 
 Git Hub
-You can access project at https://github.com/rupalikokate2021/saucelabassignment
+You can access project at https://github.com/rupalikokate2021/mhraassignment.git
