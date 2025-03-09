@@ -7,9 +7,9 @@ Scenario: Search Analyst
     And I filter based on department "<department>"
 
 Examples:
-| keyword                |      location      |
-| Analyst           |      London  |
+| keyword           |      location      |
+| Analyst           |      London        |
 
 Examples:
-| department
-| Abc
+| department |
+| Medicines and Healthcare Products Regulatory Agency        |
