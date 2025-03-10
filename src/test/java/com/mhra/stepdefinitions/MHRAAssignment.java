@@ -1,6 +1,7 @@
 package com.mhra.stepdefinitions;
 
 import com.mhra.pages.CivilServicesJobSearch;
+import com.mhra.pages.DepartmentSearch;
 import com.mhra.utils.BaseTest;
 
 import io.cucumber.java.Before;
@@ -12,11 +13,13 @@ import io.cucumber.java.en.When;
 public class MHRAAssignment extends BaseTest {
  
     CivilServicesJobSearch civilServicesJobSearch;
+    DepartmentSearch departmentsearch;
     
     @Before
     public void before(){
         setup();
         civilServicesJobSearch = new CivilServicesJobSearch(driver);
+        departmentsearch=new DepartmentSearch(driver);
       }
 
          @Given ("I am on the Civil Service Jobs Page")
@@ -36,11 +39,13 @@ public class MHRAAssignment extends BaseTest {
 
          @Then ("I filter based on department \"(.*)\"$")
          public void i_filter_based_on_department(String department){
-          civilServicesJobSearch.i_filter_based_on_department (department); 
+          departmentsearch.i_filter_based_on_department (department); 
          }
 
-
-         
+         @Then ("I select MHRA department")
+         public void  i_select_MHRA_department() throws InterruptedException{
+          departmentsearch.i_select_MHRA_department();
+         }
        
     
 }
