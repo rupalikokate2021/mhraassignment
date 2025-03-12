@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.mhra.utils.SeleniumUtils;
+import com.mhra.utils.MHRAAUtils;
 
 public class CivilServicesJobSearch {
      private WebDriver driver;
@@ -27,7 +27,7 @@ public class CivilServicesJobSearch {
         driver.get("https://www.civilservicejobs.service.gov.uk/csr/index.cgi");
         System.out.println("Please solve the CAPTCHA manually.");
        
-        SeleniumUtils.addWaitForCurrentThread(15000);
+        MHRAAUtils.addWaitForCurrentThread(15000);
 
         // Accept the cookies
         WebElement acceptAllElements = wait.until(ExpectedConditions.elementToBeClickable(By.name("accept_all_cookies_button")));
@@ -43,17 +43,13 @@ public class CivilServicesJobSearch {
         driver.findElement(By.name("what")).sendKeys(keyword);
         driver.findElement(By.name("where")).sendKeys(location);
 
-        SeleniumUtils.addWaitForCurrentThread(5000);
+        MHRAAUtils.addWaitForCurrentThread(5000);
 
          driver.findElement(By.name("search_button")).sendKeys(Keys.RETURN);
 
-         SeleniumUtils.addWaitForCurrentThread(10000);
-        
-      
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results-panel-main")));
+         MHRAAUtils.addWaitForCurrentThread(10000);
 
-       
-    
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results-panel-main")));
     }
 
     public void i_should_see_all_correct_job_listings_for(String keyword, String location) {
@@ -61,7 +57,7 @@ public class CivilServicesJobSearch {
 
         boolean allRelevantJobsFound = true;
         for (WebElement jobListing : jobItems) {
-            System.out.println(jobListing.getText());
+           // System.out.println(jobListing.getText());
             allRelevantJobsFound = jobListing.getText().contains(location) && jobListing.getText().contains(keyword);
 
             if(!allRelevantJobsFound){

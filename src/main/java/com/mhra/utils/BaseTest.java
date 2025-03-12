@@ -13,7 +13,7 @@ public class BaseTest {
     @BeforeClass
     public void setup(){
         System.out.println("starting");
-        System.setProperty("webdriver.chrome.driver", "C:\\code\\driver\\134\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Bibhishan\\chromedriver.exe");
         //System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions(); 
         options.addArguments("--start-maximized");

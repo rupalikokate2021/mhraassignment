@@ -42,10 +42,18 @@ public class MHRAAssignment extends BaseTest {
           departmentsearch.i_filter_based_on_department (department); 
          }
 
-         @Then ("I select MHRA department")
-         public void  i_select_MHRA_department() throws InterruptedException{
-          departmentsearch.i_select_MHRA_department();
+         @Then ("I select MHRA \"(.*)\"$")
+         public void  i_select_MHRA_department(String department) throws InterruptedException{
+          departmentsearch.i_select_MHRA_department(department);
          }
+
+
+    @Then ("I select the first job in search & find no of positions")
+    public void  i_select_first_job_to_find_No_of_postion() throws InterruptedException{
+        departmentsearch.i_select_first_job_to_find_No_of_postion();
+    }
+
+
        
     
 }
