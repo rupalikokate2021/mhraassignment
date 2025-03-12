@@ -13,10 +13,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mhra.utils.MHRAAUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CivilServicesJobSearch {
      private WebDriver driver;
     private WebDriverWait wait;
+    private static final Logger log = LoggerFactory.getLogger(CivilServicesJobSearch.class);
     
     public CivilServicesJobSearch(WebDriver driver){
         this.driver=driver;
@@ -25,7 +28,7 @@ public class CivilServicesJobSearch {
 
     public void i_am_on_the_civil_service_jobs_page() {
         driver.get("https://www.civilservicejobs.service.gov.uk/csr/index.cgi");
-        System.out.println("Please solve the CAPTCHA manually.");
+        log.info("Please solve the CAPTCHA manually.");
        
         MHRAAUtils.addWaitForCurrentThread(15000);
 
@@ -66,9 +69,9 @@ public class CivilServicesJobSearch {
         }
 
         if (allRelevantJobsFound) {
-            System.out.println("All job listings are relevant to the search.");
+            log.info("All job listings are relevant to the search.");
         } else {
-            System.out.println("Some job listings are not relevant to the search.");
+            log.info("Some job listings are not relevant to the search.");
         }
 
         Assert.assertTrue(!allRelevantJobsFound);

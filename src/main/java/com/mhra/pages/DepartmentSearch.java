@@ -113,7 +113,7 @@ public class DepartmentSearch {
         for (WebElement webElement : allFields){
             if(webElement.getText().contains("Number of jobs available")){
                 List<WebElement> childDivs = webElement.findElements(By.xpath(".//div[@class='vac_display_field_value']"));
-                System.out.println("Number of jobs available : "+childDivs.get(0).getText());
+                log.info("Number of jobs available : "+childDivs.get(0).getText());
             }
         }
     }

@@ -1,4 +1,4 @@
 com\mhra\pages\DepartmentSearch.class
 com\mhra\pages\CivilServicesJobSearch.class
-com\mhra\utils\SeleniumUtils.class
+com\mhra\utils\MHRAAUtils.class
 com\mhra\utils\BaseTest.class

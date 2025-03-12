@@ -1,27 +1,31 @@
 package com.mhra.utils;
 
 import java.time.Duration;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
+    private static final Logger log = LoggerFactory.getLogger(BaseTest.class);
     protected WebDriver driver;
 
     @BeforeClass
     public void setup(){
-        System.out.println("starting");
-        System.setProperty("webdriver.chrome.driver", "C:\\Bibhishan\\chromedriver.exe");
+        log.info("starting");
         //System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions(); 
         options.addArguments("--start-maximized");
-       // options.addArguments("user-data-dir=C:\\Users\\Rupali\\AppData\\Local\\Google\\Chrome\\User Data"); // Use your own Chrome profile
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
 
-        System.out.println("driver created");
+        log.info("driver created");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes( 3));
         driver.manage().window().maximize();
     }
